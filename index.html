@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101418">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Repwise">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Repwise — Training</title>
+<style>
+:root{--bg:#101418;--panel:#191f25;--panel2:#202830;--line:#303943;--text:#f2f5f7;--muted:#a6b0ba;--accent:#c5f36a;--accentText:#17200a;--danger:#ff827d;--blue:#8ac9ff;--radius:18px}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:env(safe-area-inset-top) 0 calc(82px + env(safe-area-inset-bottom));max-width:760px;margin-inline:auto}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.top{padding:22px 20px 12px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:850;letter-spacing:-.6px;font-size:23px}.brand span{color:var(--accent)}.eyebrow{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:800}.date{font-size:12px;color:var(--muted);text-align:right}.screen{display:none;padding:8px 16px 20px}.screen.active{display:block}.hero{background:linear-gradient(135deg,#252f35,#192027);border:1px solid #35414a;border-radius:24px;padding:22px;margin:4px 0 18px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:170px;height:170px;border:26px solid #c5f36a15;border-radius:50%;right:-70px;top:-70px}.hero h1{font-size:30px;line-height:1.06;letter-spacing:-1px;margin:9px 0 12px;max-width:300px}.hero p{color:var(--muted);font-size:14px;margin:0 0 18px;max-width:330px}.row{display:flex;align-items:center;gap:10px}.between{justify-content:space-between}.btn{padding:12px 15px;border-radius:12px;background:var(--accent);color:var(--accentText);font-weight:800}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}.btn.danger{background:#3a2325;color:#ffb2ad;border:1px solid #714043}.btn.small{padding:8px 11px;font-size:13px}.btn:disabled{opacity:.35;cursor:not-allowed}.section-head{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 10px}.section-head h2{font-size:18px;margin:0;letter-spacing:-.3px}.muted{color:var(--muted)}.smalltext{font-size:12px;color:var(--muted)}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:10px}.workout-card{display:flex;gap:13px;align-items:center}.workout-icon{height:54px;width:54px;border-radius:15px;background:var(--panel2);display:grid;place-items:center;font-size:25px;flex-shrink:0}.workout-card h3{margin:0 0 4px;font-size:16px}.workout-card p{margin:0;color:var(--muted);font-size:13px}.workout-card .right{margin-left:auto}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:13px}.stat strong{display:block;font-size:23px;letter-spacing:-.7px}.stat span{font-size:11px;color:var(--muted)}.nav{position:fixed;z-index:10;bottom:0;left:0;right:0;background:#11171beF;backdrop-filter:blur(18px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:9px 8px calc(8px + env(safe-area-inset-bottom));}.navinner{display:flex;width:100%;max-width:760px;justify-content:space-around}.nav button{background:transparent;color:var(--muted);font-size:11px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 15px}.nav button b{font-size:20px;font-weight:500}.nav button.active{color:var(--accent)}.pill{font-size:11px;font-weight:800;border-radius:100px;padding:5px 8px;background:#28351b;color:var(--accent)}.exercise{padding:14px 0;border-bottom:1px solid var(--line)}.exercise:last-child{border-bottom:0}.exercise h3{font-size:15px;margin:0 0 4px}.exercise p{font-size:12px;color:var(--muted);margin:0 0 10px}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.field label{display:block;font-size:11px;color:var(--muted);margin:0 0 5px}.field input,.field select,.field textarea,input.textinput,select.textinput,textarea.textinput{width:100%;min-width:0;background:#10161a;color:var(--text);border:1px solid #39434c;border-radius:10px;padding:10px;outline:none}.field input:focus,.textinput:focus{border-color:var(--accent)}.exercise-check{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:10px}.exercise-check input{accent-color:var(--accent);width:18px;height:18px}.tabs{display:flex;gap:7px;margin:12px 0}.tabs button{flex:1;padding:10px;border-radius:11px;background:var(--panel);border:1px solid var(--line);color:var(--muted);font-weight:700}.tabs button.active{background:var(--accent);color:var(--accentText);border-color:var(--accent)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.formgrid .full{grid-column:1/-1}.formlabel{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.textinput{margin-bottom:2px}.exercise-editor{background:#12181c;border:1px solid var(--line);border-radius:14px;padding:12px;margin:9px 0}.exercise-editor .row{align-items:flex-start}.exercise-editor input{margin-bottom:8px}.timer-face{font-size:62px;font-weight:850;letter-spacing:-3px;text-align:center;margin:15px 0}.timer-ring{width:220px;height:220px;border-radius:50%;border:8px solid #2d3941;border-top-color:var(--accent);margin:22px auto;display:flex;flex-direction:column;justify-content:center;align-items:center}.timer-ring .timer-face{margin:0}.center{text-align:center}.historyitem{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.historyitem:last-child{border:0}.historyitem strong{display:block;font-size:14px}.historyitem span{font-size:12px;color:var(--muted)}.notice{font-size:12px;color:var(--muted);line-height:1.5;background:#20272d;border-radius:12px;padding:12px}.empty{padding:25px;text-align:center;color:var(--muted)}.toast{position:fixed;z-index:30;bottom:100px;left:50%;transform:translateX(-50%);background:var(--accent);color:#18200d;padding:11px 16px;border-radius:12px;font-size:13px;font-weight:800;display:none;max-width:90%;box-shadow:0 8px 30px #0007}.modalback{position:fixed;inset:0;background:#0009;z-index:20;display:none;align-items:flex-end;justify-content:center}.modal{background:var(--panel);border:1px solid var(--line);border-radius:24px 24px 0 0;padding:20px;width:100%;max-width:760px;max-height:90vh;overflow:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom))}.modal h2{margin-top:0}.close{background:var(--panel2);color:var(--text);border-radius:10px;padding:8px 11px}.tiny{font-size:11px;color:var(--muted)}@media(min-width:600px){.screen{padding-inline:24px}.hero{padding:28px}.hero h1{font-size:36px}}
+</style>
+</head>
+<body>
+<header class="top"><div><div class="brand">rep<span>wise</span></div><div class="eyebrow">Train with a plan</div></div><div class="date" id="todayLabel"></div></header>
+
+<main>
+<section id="home" class="screen active">
+  <div class="hero"><div class="eyebrow">Your next session</div><h1>Build strength.<br>Track progress.</h1><p>A flexible full-body plan that adapts to your reps, recovery and equipment.</p><div class="row"><button class="btn" id="startNext">Start workout →</button><button class="btn secondary" id="editPlanHero">Edit plan</button></div></div>
+  <div class="statgrid"><div class="stat"><strong id="statSessions">0</strong><span>SESSIONS</span></div><div class="stat"><strong id="statStreak">0</strong><span>THIS WEEK</span></div><div class="stat"><strong id="statVolume">0</strong><span>REPS LOGGED</span></div></div>
+  <div class="section-head"><h2>Your plan</h2><button class="btn ghost small" id="customizeBtn">Customize</button></div>
+  <div id="homeWorkouts"></div>
+  <div class="notice">Progression rule: when you complete every set at the top of your rep range with clean form and 1–2 reps left in reserve, increase the difficulty next time. Do not progress through pain.</div>
+</section>
+
+<section id="workout" class="screen">
+  <div class="row between"><div><div class="eyebrow">Workout in progress</div><h1 id="workoutTitle" style="margin:5px 0 0;font-size:27px">Full Body A</h1></div><button class="btn ghost small" id="cancelWorkout">Exit</button></div>
+  <p class="muted" id="workoutSubtitle">Log your actual performance below.</p>
+  <div class="card"><div class="row between"><div><div class="eyebrow">Rest timer</div><strong id="inlineTimer" style="font-size:28px">01:30</strong></div><div class="row"><button class="btn secondary small" id="timerMinus">−15s</button><button class="btn small" id="timerStart">Start</button><button class="btn secondary small" id="timerPlus">+15s</button></div></div></div>
+  <div id="exerciseList" class="card"></div>
+  <div class="formgrid"><div class="full"><label class="formlabel">Session notes (optional)</label><textarea id="sessionNotes" class="textinput" rows="2" placeholder="Energy, difficulty, anything to remember…"></textarea></div></div>
+  <div class="row" style="margin-top:14px"><button class="btn" style="flex:1" id="finishWorkout">Save workout</button></div>
+  <p class="tiny">Save even if you did fewer reps than planned. Honest logs make progression useful.</p>
+</section>
+
+<section id="plan" class="screen">
+  <div class="eyebrow">Make it yours</div><h1 style="margin:5px 0 4px;font-size:29px">Training plan</h1><p class="muted" style="margin-top:0">Change days, sets, reps, rest and exercise selection.</p>
+  <div class="tabs" id="planTabs"></div>
+  <div class="card"><div class="formgrid">
+    <div><label class="formlabel">Workout name</label><input id="planName" class="textinput"></div>
+    <div><label class="formlabel">Rest between sets (sec)</label><input id="planRest" class="textinput" type="number" min="15" max="600" step="15"></div>
+    <div class="full"><label class="formlabel">Training day</label><select id="planDay" class="textinput"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option><option>Flexible</option></select></div>
+  </div></div>
+  <div class="section-head"><h2>Exercises</h2><button class="btn small" id="addExercise">+ Add</button></div>
+  <div id="planExercises"></div>
+  <div class="row" style="margin-top:14px"><button class="btn" style="flex:1" id="savePlan">Save changes</button><button class="btn secondary" id="resetPlan">Reset</button></div>
+  <div class="section-head"><h2>Preferences</h2></div>
+  <div class="card"><div class="formgrid">
+    <div><label class="formlabel">Training days / week</label><select id="prefDays" class="textinput"><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option></select></div>
+    <div><label class="formlabel">Equipment</label><select id="prefEquip" class="textinput"><option value="bodyweight">Bodyweight only</option><option value="home">Home basics (chair/backpack)</option><option value="gym">Gym / full equipment</option></select></div>
+    <div class="full"><label class="formlabel">Primary goal</label><select id="prefGoal" class="textinput"><option value="muscle">Muscle growth</option><option value="strength">Strength</option><option value="general">General fitness</option></select></div>
+  </div><button class="btn" style="width:100%;margin-top:12px" id="savePrefs">Save preferences</button></div>
+  <div class="notice">Keep the program recoverable. For muscle growth, most sets should finish with roughly 1–3 good reps in reserve. If performance falls for several sessions, reduce volume or take an easier week.</div>
+</section>
+
+<section id="progress" class="screen">
+  <div class="eyebrow">Evidence, not guesswork</div><h1 style="margin:5px 0 4px;font-size:29px">Progress</h1><p class="muted" style="margin-top:0">Your saved sessions and personal bests.</p>
+  <div class="statgrid"><div class="stat"><strong id="progressSessions">0</strong><span>SESSIONS</span></div><div class="stat"><strong id="progressReps">0</strong><span>TOTAL REPS</span></div><div class="stat"><strong id="progressDays">0</strong><span>ACTIVE DAYS</span></div></div>
+  <div class="section-head"><h2>Exercise records</h2></div><div id="records" class="card"></div>
+  <div class="section-head"><h2>Workout history</h2><button class="btn ghost small" id="exportData">Export data</button></div><div id="history" class="card"></div>
+  <div class="row" style="margin-top:12px"><button class="btn secondary" id="importBtn">Import backup</button><button class="btn danger" id="clearData">Delete all data</button><input type="file" id="importFile" accept="application/json" hidden></div>
+  <p class="tiny">Data stays in this browser on this device. Export backups regularly; clearing browser data or changing devices can erase it.</p>
+</section>
+
+<section id="timer" class="screen">
+  <div class="eyebrow">Focus between sets</div><h1 style="margin:5px 0 0;font-size:29px">Rest timer</h1>
+  <div class="timer-ring"><div class="eyebrow">Time remaining</div><div class="timer-face" id="bigTimer">01:30</div><div class="smalltext" id="timerState">Ready when you are</div></div>
+  <div class="row" style="justify-content:center;gap:8px"><button class="btn secondary" data-preset="30">30 sec</button><button class="btn secondary" data-preset="60">60 sec</button><button class="btn secondary" data-preset="90">90 sec</button><button class="btn secondary" data-preset="120">2 min</button></div>
+  <div class="row" style="justify-content:center;margin-top:18px"><button class="btn" id="bigTimerToggle">Start timer</button><button class="btn secondary" id="bigTimerReset">Reset</button></div>
+  <p class="notice" style="margin-top:24px">Rest long enough to make the next set productive. For hard strength or hypertrophy sets, 2–3 minutes is often more useful than rushing back in.</p>
+</section>
+</main>
+
+<nav class="nav"><div class="navinner">
+<button data-screen="home" class="active"><b>⌂</b>Home</button><button data-screen="plan"><b>☷</b>Plan</button><button data-screen="progress"><b>↗</b>Progress</button><button data-screen="timer"><b>◷</b>Timer</button>
+</div></nav>
+<div id="toast" class="toast"></div>
+<div id="modalback" class="modalback"><div class="modal"><div class="row between"><h2 id="modalTitle">Add exercise</h2><button class="close" id="modalClose">Close</button></div><div class="formgrid">
+<div class="full"><label class="formlabel">Exercise name</label><input id="newName" class="textinput" placeholder="e.g. Backpack squat"></div>
+<div class="full"><label class="formlabel">Muscle / movement</label><select id="newGroup" class="textinput"><option>Chest</option><option>Back</option><option>Shoulders</option><option>Arms</option><option>Legs</option><option>Glutes</option><option>Core</option><option>Full body</option></select></div>
+<div><label class="formlabel">Sets</label><input id="newSets" class="textinput" type="number" min="1" max="10" value="3"></div>
+<div><label class="formlabel">Rep target</label><input id="newReps" class="textinput" value="8–12"></div>
+<div class="full"><label class="formlabel">Technique / notes</label><input id="newNotes" class="textinput" placeholder="Optional cues"></div>
+</div><button class="btn" id="modalAdd" style="width:100%;margin-top:14px">Add exercise</button></div></div>
+
+<script>
+const KEY='repwise-mvp-v1';
+const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','Flexible'];
+const defaultData={
+ prefs:{days:3,equipment:'bodyweight',goal:'muscle'},
+ plans:[
+ {id:'A',name:'Full Body A',day:'Monday',rest:120,exercises:[
+ {id:'a1',name:'Push-ups',group:'Chest',sets:3,reps:'8–16',notes:'Keep body rigid; chest close to floor.'},
+ {id:'a2',name:'Bodyweight squats',group:'Legs',sets:3,reps:'12–20',notes:'Controlled depth; knees track with toes.'},
+ {id:'a3',name:'Glute bridges',group:'Glutes',sets:3,reps:'12–20',notes:'Pause and squeeze at the top.'},
+ {id:'a4',name:'Backpack rows',group:'Back',sets:3,reps:'8–15',notes:'Use a secure load and neutral back; if no safe setup, substitute prone Y-T raises.'},
+ {id:'a5',name:'Dead bug',group:'Core',sets:3,reps:'8–12/side',notes:'Keep lower back gently against floor.'}]},
+ {id:'B',name:'Full Body B',day:'Wednesday',rest:120,exercises:[
+ {id:'b1',name:'Pike push-ups',group:'Shoulders',sets:3,reps:'6–12',notes:'Scale by reducing hip height or use incline push-ups.'},
+ {id:'b2',name:'Reverse lunges',group:'Legs',sets:3,reps:'8–12/side',notes:'Hold a wall lightly for balance if needed.'},
+ {id:'b3',name:'Single-leg glute bridge',group:'Glutes',sets:3,reps:'8–12/side',notes:'Keep hips level.'},
+ {id:'b4',name:'Prone Y-T raises',group:'Back',sets:3,reps:'8–12 each',notes:'Slow, controlled shoulder-blade movement.'},
+ {id:'b5',name:'Side plank',group:'Core',sets:3,reps:'20–40 sec/side',notes:'Keep a straight line; bend knees to scale.'}]},
+ {id:'C',name:'Full Body C',day:'Friday',rest:120,exercises:[
+ {id:'c1',name:'Close-grip push-ups',group:'Chest / Arms',sets:3,reps:'6–12',notes:'Hands about shoulder-width; elbows comfortable.'},
+ {id:'c2',name:'Split squats',group:'Legs',sets:3,reps:'8–12/side',notes:'Use bodyweight first; stable stance.'},
+ {id:'c3',name:'Hip hinge / good morning',group:'Glutes',sets:3,reps:'12–20',notes:'Hinge at hips, keep spine neutral.'},
+ {id:'c4',name:'Backpack rows',group:'Back',sets:3,reps:'8–15',notes:'Only use a secure setup; otherwise prone Y-T raises.'},
+ {id:'c5',name:'Reverse crunch',group:'Core',sets:3,reps:'10–15',notes:'Curl pelvis; avoid swinging.'}]}
+ ],
+ history:[],nextId:1
+};
+let data=loadData(), selectedPlan='A', activeWorkout=null, timerSeconds=90, timerRemaining=90, timerInterval=null, timerRunning=false, modalMode='add';
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function loadData(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.plans&&d.history)return d}catch(e){}return clone(defaultData)}
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2300)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function todayKey(){return new Date().toISOString().slice(0,10)}
+function fmtDate(d){return new Date(d+'T12:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric'})}
+function repsToNumber(v){const m=String(v).match(/\d+/);return m?Number(m[0]):0}
+function nav(screen){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===screen));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.screen===screen));if(screen==='home')renderHome();if(screen==='plan')renderPlan();if(screen==='progress')renderProgress();window.scrollTo(0,0)}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>nav(b.dataset.screen)));
+document.getElementById('todayLabel').innerHTML=new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
+function renderHome(){
+ const allReps=data.history.reduce((s,h)=>s+h.exercises.reduce((a,e)=>a+(e.actual||[]).reduce((x,n)=>x+(+n||0),0),0),0);
+ const monday=new Date();monday.setHours(0,0,0,0);monday.setDate(monday.getDate()-((monday.getDay()+6)%7));const weekCount=data.history.filter(h=>new Date(h.date+'T12:00:00')>=monday).length;
+ document.getElementById('statSessions').textContent=data.history.length;document.getElementById('statStreak').textContent=weekCount;document.getElementById('statVolume').textContent=allReps;
+ const host=document.getElementById('homeWorkouts');host.innerHTML=data.plans.map(p=>`<div class="card workout-card"><div class="workout-icon">${p.id==='A'?'◉':p.id==='B'?'↗':'✳'}</div><div><h3>${esc(p.name)}</h3><p>${esc(p.day)} · ${p.exercises.length} exercises · ${p.exercises.reduce((s,e)=>s+(+e.sets||0),0)} sets</p></div><div class="right"><button class="btn small" data-start="${esc(p.id)}">Start</button></div></div>`).join('');
+ host.querySelectorAll('[data-start]').forEach(b=>b.onclick=()=>startWorkout(b.dataset.start));
+}
+function renderPlan(){
+ document.getElementById('planTabs').innerHTML=data.plans.map(p=>`<button class="${p.id===selectedPlan?'active':''}" data-pid="${esc(p.id)}">${esc(p.id)}</button>`).join('')+`<button id="newPlanTab">+ Plan</button>`;
+ document.querySelectorAll('[data-pid]').forEach(b=>b.onclick=()=>{selectedPlan=b.dataset.pid;renderPlan()});
+ const np=document.getElementById('newPlanTab');if(np)np.onclick=addPlan;
+ const p=data.plans.find(x=>x.id===selectedPlan)||data.plans[0];if(!p)return;
+ document.getElementById('planName').value=p.name;document.getElementById('planRest').value=p.rest;document.getElementById('planDay').value=p.day;
+ document.getElementById('planExercises').innerHTML=p.exercises.map((e,i)=>`<div class="exercise-editor" data-eid="${esc(e.id)}"><div class="row between"><strong>${i+1}. ${esc(e.name)}</strong><button class="btn danger small" data-remove="${esc(e.id)}">Remove</button></div><div class="formgrid" style="margin-top:10px"><div class="full"><label class="formlabel">Exercise name</label><input class="textinput ename" value="${esc(e.name)}"></div><div><label class="formlabel">Sets</label><input class="textinput esets" type="number" min="1" max="10" value="${+e.sets||3}"></div><div><label class="formlabel">Rep target</label><input class="textinput ereps" value="${esc(e.reps)}"></div><div class="full"><label class="formlabel">Cues / notes</label><input class="textinput enotes" value="${esc(e.notes||'')}"></div></div></div>`).join('')||'<div class="empty">No exercises yet. Add one to build this workout.</div>';
+ document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{p.exercises=p.exercises.filter(e=>e.id!==b.dataset.remove);renderPlan()});
+ document.getElementById('prefDays').value=String(data.prefs.days||3);document.getElementById('prefEquip').value=data.prefs.equipment;document.getElementById('prefGoal').value=data.prefs.goal;
+}
+function syncPlanForm(){const p=data.plans.find(x=>x.id===selectedPlan);if(!p)return;p.name=document.getElementById('planName').value.trim()||'My workout';p.rest=Math.max(15,Math.min(600,+document.getElementById('planRest').value||120));p.day=document.getElementById('planDay').value;document.querySelectorAll('.exercise-editor').forEach(el=>{const e=p.exercises.find(x=>x.id===el.dataset.eid);if(e){e.name=el.querySelector('.ename').value.trim()||'Exercise';e.sets=Math.max(1,Math.min(10,+el.querySelector('.esets').value||3));e.reps=el.querySelector('.ereps').value.trim()||'8–12';e.notes=el.querySelector('.enotes').value.trim()}})}
+document.getElementById('savePlan').onclick=()=>{syncPlanForm();save();renderPlan();renderHome();toast('Plan saved')};
+document.getElementById('resetPlan').onclick=()=>{if(confirm('Reset all plans to the starter program? This replaces your current plan edits.')){data.plans=clone(defaultData.plans);selectedPlan='A';save();renderPlan();renderHome();toast('Starter plan restored')}};
+document.getElementById('savePrefs').onclick=()=>{data.prefs={days:+document.getElementById('prefDays').value,equipment:document.getElementById('prefEquip').value,goal:document.getElementById('prefGoal').value};save();toast('Preferences saved')};
+function addPlan(){syncPlanForm();const id='P'+(data.nextId++);data.plans.push({id,name:'New workout',day:'Flexible',rest:120,exercises:[]});selectedPlan=id;save();renderPlan()}
+document.getElementById('addExercise').onclick=()=>{modalMode='add';document.getElementById('modalTitle').textContent='Add exercise';document.getElementById('newName').value='';document.getElementById('newGroup').value='Full body';document.getElementById('newSets').value='3';document.getElementById('newReps').value='8–12';document.getElementById('newNotes').value='';document.getElementById('modalback').style.display='flex'};
+document.getElementById('modalClose').onclick=()=>document.getElementById('modalback').style.display='none';
+document.getElementById('modalback').addEventListener('click',e=>{if(e.target.id==='modalback')e.currentTarget.style.display='none'});
+document.getElementById('modalAdd').onclick=()=>{syncPlanForm();const p=data.plans.find(x=>x.id===selectedPlan);const name=document.getElementById('newName').value.trim();if(!name){toast('Enter an exercise name');return}p.exercises.push({id:'e'+(data.nextId++),name,group:document.getElementById('newGroup').value,sets:Math.max(1,+document.getElementById('newSets').value||3),reps:document.getElementById('newReps').value.trim()||'8–12',notes:document.getElementById('newNotes').value.trim()});save();document.getElementById('modalback').style.display='none';renderPlan();toast('Exercise added')};
+function startWorkout(id){syncPlanForm();save();const p=data.plans.find(x=>x.id===id);if(!p)return;activeWorkout={planId:p.id,name:p.name,rest:p.rest,started:new Date().toISOString(),exercises:p.exercises.map(e=>({...clone(e),actual:Array.from({length:e.sets},()=>''),done:Array.from({length:e.sets},()=>false)}))};document.getElementById('workoutTitle').textContent=p.name;document.getElementById('workoutSubtitle').textContent=`${p.exercises.length} exercises · Planned rest ${p.rest}s`;document.getElementById('sessionNotes').value='';renderWorkout();nav('workout')}
+function renderWorkout(){if(!activeWorkout)return;document.getElementById('exerciseList').innerHTML=activeWorkout.exercises.map((e,idx)=>`<div class="exercise"><div class="row between"><div><h3>${idx+1}. ${esc(e.name)}</h3><p>${esc(e.group||'')} · Target ${esc(e.reps)} · ${esc(e.notes||'')}</p></div><button class="btn secondary small" data-rest="${activeWorkout.rest}">Rest</button></div><div class="fields">${e.actual.map((v,i)=>`<div class="field"><label>Set ${i+1} reps</label><input type="number" min="0" inputmode="numeric" data-ex="${idx}" data-set="${i}" value="${esc(v)}" placeholder="${esc(String(e.reps).match(/\d+/)?.[0]||'reps')}"></div>`).join('')}</div><label class="exercise-check"><input type="checkbox" data-done="${idx}" ${e.done.every(Boolean)?'checked':''}> Mark all sets complete</label></div>`).join('');
+ document.querySelectorAll('[data-ex]').forEach(inp=>inp.onchange=()=>{activeWorkout.exercises[+inp.dataset.ex].actual[+inp.dataset.set]=inp.value});
+ document.querySelectorAll('[data-done]').forEach(ch=>ch.onchange=()=>{const e=activeWorkout.exercises[+ch.dataset.done];e.done=e.done.map(()=>ch.checked);});
+ document.querySelectorAll('[data-rest]').forEach(b=>b.onclick=()=>{setTimer(+b.dataset.rest);nav('timer');startTimer()});
+}
+document.getElementById('startNext').onclick=()=>startWorkout(data.plans[0]?.id);document.getElementById('editPlanHero').onclick=()=>nav('plan');document.getElementById('customizeBtn').onclick=()=>nav('plan');
+document.getElementById('cancelWorkout').onclick=()=>{if(confirm('Exit without saving this workout?')){activeWorkout=null;nav('home')}};
+document.getElementById('finishWorkout').onclick=()=>{if(!activeWorkout)return;document.querySelectorAll('[data-ex]').forEach(inp=>activeWorkout.exercises[+inp.dataset.ex].actual[+inp.dataset.set]=inp.value);const exercises=activeWorkout.exercises.map(e=>({...e,actual:e.actual.map(v=>v===''?0:+v)}));const total=exercises.reduce((s,e)=>s+e.actual.reduce((a,n)=>a+n,0),0);if(!total&&!confirm('No reps are logged. Save this session anyway?'))return;data.history.unshift({id:'h'+Date.now(),date:todayKey(),planId:activeWorkout.planId,name:activeWorkout.name,started:activeWorkout.started,finished:new Date().toISOString(),notes:document.getElementById('sessionNotes').value,exercises,total});save();activeWorkout=null;nav('progress');toast('Workout saved — good work')};
+function setTimer(s){timerSeconds=Math.max(0,s);timerRemaining=timerSeconds;renderTimer()}
+function fmtTime(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function renderTimer(){document.getElementById('inlineTimer').textContent=fmtTime(timerRemaining);document.getElementById('bigTimer').textContent=fmtTime(timerRemaining);document.getElementById('timerState').textContent=timerRunning?'Running':timerRemaining===0?'Time is up':'Ready when you are';document.getElementById('bigTimerToggle').textContent=timerRunning?'Pause timer':'Start timer';document.getElementById('timerStart').textContent=timerRunning?'Pause':'Start'}
+function stopTimer(){if(timerInterval)clearInterval(timerInterval);timerInterval=null;timerRunning=false;renderTimer()}
+function startTimer(){if(timerRunning){stopTimer();return}if(timerRemaining<=0)timerRemaining=timerSeconds;timerRunning=true;renderTimer();timerInterval=setInterval(()=>{timerRemaining--;if(timerRemaining<=0){timerRemaining=0;stopTimer();if(navigator.vibrate)navigator.vibrate([200,100,200]);toast('Rest finished — next set');try{new AudioContext().resume()}catch(e){}}else renderTimer()},1000)}
+document.getElementById('timerStart').onclick=startTimer;document.getElementById('timerMinus').onclick=()=>{setTimer(timerRemaining-15)};document.getElementById('timerPlus').onclick=()=>{setTimer(timerRemaining+15)};
+document.getElementById('bigTimerToggle').onclick=startTimer;document.getElementById('bigTimerReset').onclick=()=>{stopTimer();setTimer(timerSeconds)};
+document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{stopTimer();setTimer(+b.dataset.preset)});
+function renderProgress(){
+ const reps=data.history.reduce((s,h)=>s+h.exercises.reduce((a,e)=>a+e.actual.reduce((x,n)=>x+(+n||0),0),0),0);const active=new Set(data.history.map(h=>h.date)).size;
+ document.getElementById('progressSessions').textContent=data.history.length;document.getElementById('progressReps').textContent=reps;document.getElementById('progressDays').textContent=active;
+ const rec={};data.history.forEach(h=>h.exercises.forEach(e=>{const total=e.actual.reduce((a,n)=>a+(+n||0),0);if(!rec[e.name]||total>rec[e.name].reps)rec[e.name]={reps:total,date:h.date,sets:e.actual.filter(n=>+n>0).length}}));
+ document.getElementById('records').innerHTML=Object.keys(rec).length?Object.entries(rec).sort((a,b)=>b[1].reps-a[1].reps).map(([n,r])=>`<div class="historyitem"><div><strong>${esc(n)}</strong><span>${fmtDate(r.date)} · ${r.sets} sets logged</span></div><div style="text-align:right"><strong>${r.reps} reps</strong><span>best session total</span></div></div>`).join(''):'<div class="empty">Your records will appear after your first saved workout.</div>';
+ document.getElementById('history').innerHTML=data.history.length?data.history.slice(0,30).map(h=>`<div class="historyitem"><div><strong>${esc(h.name)}</strong><span>${fmtDate(h.date)} · ${h.exercises.length} exercises</span>${h.notes?`<div class="tiny">${esc(h.notes)}</div>`:''}</div><div style="text-align:right"><strong>${h.total} reps</strong><span>${new Date(h.finished).toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'})}</span><div><button class="btn danger small" data-delhistory="${esc(h.id)}" style="margin-top:5px">Delete</button></div></div></div>`).join(''):'<div class="empty">No workouts logged yet. Start your first session from Home.</div>';
+ document.querySelectorAll('[data-delhistory]').forEach(b=>b.onclick=()=>{if(confirm('Delete this workout record?')){data.history=data.history.filter(h=>h.id!==b.dataset.delhistory);save();renderProgress()}});
+}
+document.getElementById('exportData').onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='repwise-backup-'+todayKey()+'.json';a.click();URL.revokeObjectURL(url);toast('Backup exported')};
+document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();
+document.getElementById('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(!d.plans||!d.history)throw Error();if(confirm('Import backup and replace current app data?')){data=d;save();renderHome();renderProgress();renderPlan();toast('Backup imported')}}catch(err){alert('That file does not look like a Repwise backup.')}e.target.value=''};
+document.getElementById('clearData').onclick=()=>{if(confirm('Delete all workout history, plan edits and preferences? This cannot be undone unless you exported a backup.')){data=clone(defaultData);save();selectedPlan='A';renderHome();renderProgress();renderPlan();toast('App data reset')}};
+function init(){renderHome();renderPlan();renderProgress();renderTimer();if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./service-worker.js').catch(()=>{});}
+init();
+</script>
+</body></html>
